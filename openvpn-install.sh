@@ -892,33 +892,34 @@ fi
 }
 
 function newClient () {
-	echo ""
-	echo "Tell me a name for the client."
-	echo "Use one word only, no special characters."
+#	echo ""
+#	echo "Tell me a name for the client."
+#	echo "Use one word only, no special characters."
 
 	until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
 		read -rp "Client name: " -e CLIENT
 	done
 
-	echo ""
-	echo "Do you want to protect the configuration file with a password?"
-	echo "(e.g. encrypt the private key with a password)"
-	echo "   1) Add a passwordless client"
-	echo "   2) Use a password for the client"
+#	echo ""
+#	echo "Do you want to protect the configuration file with a password?"
+#	echo "(e.g. encrypt the private key with a password)"
+#	echo "   1) Add a passwordless client"
+#	echo "   2) Use a password for the client"
 
-	until [[ "$PASS" =~ ^[1-2]$ ]]; do
-		read -rp "Select an option [1-2]: " -e -i 1 PASS
-	done
+#	until [[ "$PASS" =~ ^[1-2]$ ]]; do
+#		read -rp "Select an option [1-2]: " -e -i 1 PASS
+#	done
 
 	cd /etc/openvpn/easy-rsa/ || return
+	PASS=1
 	case $PASS in
 		1)
 			./easyrsa build-client-full "$CLIENT" nopass
 		;;
-		2)
-		echo "⚠️ You will be asked for the client password below ⚠️"
-			./easyrsa build-client-full "$CLIENT"
-		;;
+#		2)
+#		echo "⚠️ You will be asked for the client password below ⚠️"
+#			./easyrsa build-client-full "$CLIENT"
+#		;;
 	esac
 
 	# Home directory of the user, where the client configuration (.ovpn) will be written
@@ -1124,32 +1125,32 @@ function removeOpenVPN () {
 function manageMenu () {
 	clear
 	echo "Welcome to OpenVPN-install!"
-	echo "The git repository is available at: https://github.com/angristan/openvpn-install"
-	echo ""
+#	echo "The git repository is available at: https://github.com/angristan/openvpn-install"
+#	echo ""
 	echo "It looks like OpenVPN is already installed."
-	echo ""
-	echo "What do you want to do?"
-	echo "   1) Add a new user"
-	echo "   2) Revoke existing user"
-	echo "   3) Remove OpenVPN"
-	echo "   4) Exit"
-	until [[ "$MENU_OPTION" =~ ^[1-4]$ ]]; do
-		read -rp "Select an option [1-4]: " MENU_OPTION
-	done
-
+#	echo ""
+#	echo "What do you want to do?"
+#	echo "   1) Add a new user"
+#	echo "   2) Revoke existing user"
+#	echo "   3) Remove OpenVPN"
+#	echo "   4) Exit"
+#	until [[ "$MENU_OPTION" =~ ^[1-4]$ ]]; do
+#		read -rp "Select an option [1-4]: " MENU_OPTION
+#	done
+	MENU_OPTION=1
 	case $MENU_OPTION in
 		1)
 			newClient
 		;;
-		2)
-			revokeClient
-		;;
-		3)
-			removeOpenVPN
-		;;
-		4)
-			exit 0
-		;;
+#		2)
+#			revokeClient
+#		;;
+#		3)
+#			removeOpenVPN
+#		;;
+#		4)
+#			exit 0
+#		;;
 	esac
 }
 
