@@ -891,7 +891,7 @@ fi
 	newClient
 	echo "If you want to add more clients, you simply need to run this script another time!"
 }
-var2=$1
+
 function newClient () {
 #	echo ""
 #	echo "Tell me a name for the client."
@@ -900,8 +900,8 @@ function newClient () {
 #	until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
 #		read -rp "Client name: " -e CLIENT
 #	done
-CLIENT=$var2
-echo $CLIENT
+CLIENT=$UUID_$PDName
+echo "Client id is " $CLIENT
 #	echo ""
 #	echo "Do you want to protect the configuration file with a password?"
 #	echo "(e.g. encrypt the private key with a password)"
