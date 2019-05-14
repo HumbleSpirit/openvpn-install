@@ -900,7 +900,7 @@ function newClient () {
 #	until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
 #		read -rp "Client name: " -e CLIENT
 #	done
-CLIENT="\$UUID"_"\$PDName"
+CLIENT=\$UUID"_"\$PDName
 echo "Client id is " $CLIENT
  #echo "FOO=foo"
   #echo "BAR=$BAR"
