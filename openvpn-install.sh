@@ -897,13 +897,9 @@ function newClient () {
 #	echo "Tell me a name for the client."
 #	echo "Use one word only, no special characters."
 
-#	until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
-#		read -rp "Client name: " -e CLIENT
+	until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
+		read -rp "Client name: " -e CLIENT
 #	done
-#CLIENT=\$UUID"_"\$PDName
-#echo "Client id is " $CLIENT
- #echo "FOO=foo"
-  #echo "BAR=$BAR"
 #	echo ""
 #	echo "Do you want to protect the configuration file with a password?"
 #	echo "(e.g. encrypt the private key with a password)"
