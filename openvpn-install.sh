@@ -891,7 +891,7 @@ fi
 	newClient
 	echo "If you want to add more clients, you simply need to run this script another time!"
 }
-var_client=$1
+var_client=$CLIENT
 function newClient () {
 #	echo ""
 #	echo "Tell me a name for the client."
