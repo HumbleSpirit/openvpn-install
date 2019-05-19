@@ -891,14 +891,14 @@ fi
 	newClient
 	echo "If you want to add more clients, you simply need to run this script another time!"
 }
-
+var_client=$1
 function newClient () {
 #	echo ""
 #	echo "Tell me a name for the client."
 #	echo "Use one word only, no special characters."
-
-	until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
-		read -rp "Client name: " -e CLIENT
+CLIENT=${var_client}
+#until [[ "$CLIENT" =~ ^[a-zA-Z0-9._]+$ ]]; do
+#	read -rp "Client name: " -e CLIENT
 #	done
 #	echo ""
 #	echo "Do you want to protect the configuration file with a password?"
