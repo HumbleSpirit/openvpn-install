@@ -546,6 +546,7 @@ function installOpenVPN () {
 		#sudo amazon-linux-extras install epel
 		#yum install -y epel-release
 		#yum install -y openvpn iptables openssl wget ca-certificates curl
+		:
 	elif [[ "$OS" = 'fedora' ]]; then
 		dnf install -y openvpn iptables openssl wget ca-certificates curl
 	elif [[ "$OS" = 'arch' ]]; then
